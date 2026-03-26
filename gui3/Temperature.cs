@@ -104,7 +104,7 @@ namespace gui3
         }
         public static Temperature operator +(double number, Temperature temp)
         {
-            return temp + number.To(instance1.type).value;
+            return temp + number;
 
         }
 

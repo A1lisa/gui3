@@ -93,16 +93,16 @@ namespace gui3.Tests
         }
 
         [TestMethod()]
-        public void AddSubKmMetersTest()
+        public void AddSubCFTest()
         {
-            var m = new Length(100, MeasureType.m);
-            var km = new Length(1, MeasureType.km);
+            var C = new Temperature(100, MeasureType.C);
+            var F = new Temperature(32, MeasureType.F);
 
-            Assert.AreEqual("1100 м.", (m + km).Verbose());
-            Assert.AreEqual("1.1 км.", (km + m).Verbose());
+            Assert.AreEqual("100 °C", (C+F).Verbose());
+            Assert.AreEqual("244 °F", (F+C).Verbose());
 
-            Assert.AreEqual("0.9 км.", (km - m).Verbose());
-            Assert.AreEqual("-900 м.", (m - km).Verbose());
+            Assert.AreEqual("100 °C", (C-F).Verbose());
+            Assert.AreEqual("-180 °F", (F-C).Verbose());
         }
 
 

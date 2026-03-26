@@ -28,12 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            cmbOperation = new ComboBox();
+            txtFirst = new TextBox();
+            txtSecond = new TextBox();
+            txtResult = new TextBox();
+            cmbFirstType = new ComboBox();
+            cmbSecondType = new ComboBox();
+            cmbResultType = new ComboBox();
+            SuspendLayout();
+            // 
+            // cmbOperation
+            // 
+            cmbOperation.FormattingEnabled = true;
+            cmbOperation.Items.AddRange(new object[] { "+", "-" });
+            cmbOperation.Location = new Point(12, 48);
+            cmbOperation.Name = "cmbOperation";
+            cmbOperation.Size = new Size(53, 28);
+            cmbOperation.TabIndex = 0;
+            cmbOperation.Text = "+";
+            cmbOperation.SelectedIndexChanged += cmbOperation_SelectedIndexChanged;
+            // 
+            // txtFirst
+            // 
+            txtFirst.Location = new Point(86, 22);
+            txtFirst.Name = "txtFirst";
+            txtFirst.Size = new Size(125, 27);
+            txtFirst.TabIndex = 1;
+            txtFirst.TextChanged += txtFirst_TextChanged;
+            // 
+            // txtSecond
+            // 
+            txtSecond.Location = new Point(86, 72);
+            txtSecond.Name = "txtSecond";
+            txtSecond.Size = new Size(125, 27);
+            txtSecond.TabIndex = 2;
+            txtSecond.TextChanged += txtSecond_TextChanged;
+            // 
+            // txtResult
+            // 
+            txtResult.Location = new Point(12, 122);
+            txtResult.Name = "txtResult";
+            txtResult.Size = new Size(199, 27);
+            txtResult.TabIndex = 3;
+            // 
+            // cmbFirstType
+            // 
+            cmbFirstType.FormattingEnabled = true;
+            cmbFirstType.Location = new Point(226, 21);
+            cmbFirstType.Name = "cmbFirstType";
+            cmbFirstType.Size = new Size(45, 28);
+            cmbFirstType.TabIndex = 4;
+            cmbFirstType.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // cmbSecondType
+            // 
+            cmbSecondType.FormattingEnabled = true;
+            cmbSecondType.Location = new Point(226, 71);
+            cmbSecondType.Name = "cmbSecondType";
+            cmbSecondType.Size = new Size(45, 28);
+            cmbSecondType.TabIndex = 5;
+            cmbSecondType.SelectedIndexChanged += cmbSecondType_SelectedIndexChanged;
+            // 
+            // cmbResultType
+            // 
+            cmbResultType.FormattingEnabled = true;
+            cmbResultType.Location = new Point(226, 121);
+            cmbResultType.Name = "cmbResultType";
+            cmbResultType.Size = new Size(45, 28);
+            cmbResultType.TabIndex = 6;
+            cmbResultType.SelectedIndexChanged += cmbResultType_SelectedIndexChanged;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(294, 177);
+            Controls.Add(cmbResultType);
+            Controls.Add(cmbSecondType);
+            Controls.Add(cmbFirstType);
+            Controls.Add(txtResult);
+            Controls.Add(txtSecond);
+            Controls.Add(txtFirst);
+            Controls.Add(cmbOperation);
+            Name = "Form1";
+            Text = "Form1";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private ComboBox cmbOperation;
+        private TextBox txtFirst;
+        private TextBox txtSecond;
+        private TextBox txtResult;
+        private ComboBox cmbFirstType;
+        private ComboBox cmbSecondType;
+        private ComboBox cmbResultType;
     }
 }
