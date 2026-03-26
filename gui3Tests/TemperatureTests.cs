@@ -83,13 +83,26 @@ namespace gui3.Tests
             Temperature temp;
 
             temp = new Temperature(0, MeasureType.C);
-            Assert.AreEqual("273.15 K", temp.To(MeasureType.K).Verbose());
+            Assert.AreEqual("273,15 K", temp.To(MeasureType.K).Verbose());
 
             temp = new Temperature(32, MeasureType.F);
-            Assert.AreEqual("273.15 K", temp.To(MeasureType.K).Verbose());
+            Assert.AreEqual("273,15 K", temp.To(MeasureType.K).Verbose());
 
             temp = new Temperature(495, MeasureType.Ra);
             Assert.AreEqual("275 K", temp.To(MeasureType.K).Verbose());
+        }
+
+        [TestMethod()]
+        public void AddSubKmMetersTest()
+        {
+            var m = new Length(100, MeasureType.m);
+            var km = new Length(1, MeasureType.km);
+
+            Assert.AreEqual("1100 м.", (m + km).Verbose());
+            Assert.AreEqual("1.1 км.", (km + m).Verbose());
+
+            Assert.AreEqual("0.9 км.", (km - m).Verbose());
+            Assert.AreEqual("-900 м.", (m - km).Verbose());
         }
 
 

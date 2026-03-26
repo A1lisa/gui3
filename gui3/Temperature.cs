@@ -95,6 +95,7 @@ namespace gui3
 
             return new Temperature(newValue, newType);
         }
+        //число
         public static Temperature operator +(Temperature temp, double number)
         {
             var newValue = temp.value + number;
@@ -103,7 +104,7 @@ namespace gui3
         }
         public static Temperature operator +(double number, Temperature temp)
         {
-            return temp + number;
+            return temp + number.To(instance1.type).value;
 
         }
 
@@ -132,6 +133,17 @@ namespace gui3
         public static Temperature operator /(double number, Temperature temp)
         {
             return temp / number;
+        }
+
+        //между собой
+        public static Temperature operator +(Temperature t1, Temperature t2)
+        {
+            return t1 + t2.To(t1.type).value;
+        }
+
+        public static Temperature operator -(Temperature t1, Temperature t2)
+        {
+            return t1 - t2.To(t1.type).value;
         }
 
 
