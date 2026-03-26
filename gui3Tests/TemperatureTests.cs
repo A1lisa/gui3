@@ -77,6 +77,21 @@ namespace gui3.Tests
 
         }
 
+        [TestMethod()]
+        public void AnyToKelvinTest()
+        {
+            Temperature temp;
+
+            temp = new Temperature(0, MeasureType.C);
+            Assert.AreEqual("273.15 K", temp.To(MeasureType.K).Verbose());
+
+            temp = new Temperature(32, MeasureType.F);
+            Assert.AreEqual("273.15 K", temp.To(MeasureType.K).Verbose());
+
+            temp = new Temperature(495, MeasureType.Ra);
+            Assert.AreEqual("275 K", temp.To(MeasureType.K).Verbose());
+        }
+
 
 
 

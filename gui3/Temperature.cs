@@ -45,7 +45,7 @@ namespace gui3
                     typeVerbose = "K";
                     break;
             }
-            return String.Format("{0} {1}", this.value, typeVerbose);
+            return String.Format("{0} {1}", Math.Round(this.value, 2), typeVerbose);
         }
 
         public Temperature To(MeasureType newType)
@@ -59,16 +59,40 @@ namespace gui3
                         newValue = this.value;
                         break;
                     case MeasureType.C:
-                        newValue = this.value-273.15;
+                        newValue = this.value - 273.15;
                         break;
                     case MeasureType.F:
-                        newValue = this.value*9.0/5.0-459.67;
+                        newValue = this.value * 9.0 / 5.0 - 459.67;
                         break;
                     case MeasureType.Ra:
-                        newValue = this.value*9.0/5.0;
+                        newValue = this.value * 9.0 / 5.0;
                         break;
                 }
             }
+ 
+            else if (newType == MeasureType.K)
+            {
+                switch (this.type)
+                {
+                    case MeasureType.K:
+                        newValue = this.value;
+                        break;
+                    case MeasureType.C:
+                        newValue = this.value + 273.15;
+                        break;
+                    case MeasureType.F:
+                        newValue = (this.value + 459.67) * 5.0 / 9.0;
+                        break;
+                    case MeasureType.Ra:
+                        newValue = this.value * 5.0 / 9.0;
+                        break;
+                }
+            }
+            else
+            {
+                newValue = this.To(MeasureType.K).To(newType).value;
+            }
+
             return new Temperature(newValue, newType);
         }
         public static Temperature operator +(Temperature temp, double number)
