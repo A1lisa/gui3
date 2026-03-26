@@ -28,13 +28,56 @@ namespace gui3.Tests
             Assert.AreEqual("15 K", temp.Verbose());
 
         }
+
         [TestMethod()]
         public void AddNumberTest()
         {
             var temp=new Temperature(1, MeasureType.C);
             temp = temp + 10.5;
-            Assert.AreEqual("11.5 °C", temp.Verbose());
+            Assert.AreEqual("11,5 °C", temp.Verbose());
         }
+
+        [TestMethod()]
+        public void SubNumberTest()
+        {
+            var temp = new Temperature(10, MeasureType.C);
+            temp = temp - 5;
+            Assert.AreEqual("5 °C", temp.Verbose());
+        }
+
+        [TestMethod()]
+        public void MulNumberTest()
+        {
+            var temp = new Temperature(2, MeasureType.C);
+            temp = temp * 5;
+            Assert.AreEqual("10 °C", temp.Verbose());
+        }
+
+        [TestMethod()]
+        public void DivNumberTest()
+        {
+            var temp = new Temperature(15, MeasureType.C);
+            temp = temp / 3;
+            Assert.AreEqual("5 °C", temp.Verbose());
+        }
+
+
+        [TestMethod()]
+        public void KelvinToAnyTest()
+        {
+            Temperature temp;
+            temp=new Temperature(273.15, MeasureType.K);
+            Assert.AreEqual("0 °C", temp.To(MeasureType.C).Verbose());
+
+            temp = new Temperature(273.15, MeasureType.K);
+            Assert.AreEqual("32 °F", temp.To(MeasureType.F).Verbose());
+
+            temp = new Temperature(275, MeasureType.K);
+            Assert.AreEqual("495 °Ra", temp.To(MeasureType.Ra).Verbose());
+
+        }
+
+
 
 
     }
