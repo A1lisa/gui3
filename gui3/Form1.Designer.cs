@@ -40,13 +40,13 @@
             // cmbOperation
             // 
             cmbOperation.FormattingEnabled = true;
-            cmbOperation.Items.AddRange(new object[] { "+", "-" });
+            cmbOperation.Items.AddRange(new object[] { "+", "-", "*", "/" });
             cmbOperation.Location = new Point(12, 48);
             cmbOperation.Name = "cmbOperation";
             cmbOperation.Size = new Size(53, 28);
             cmbOperation.TabIndex = 0;
             cmbOperation.Text = "+";
-            cmbOperation.SelectedIndexChanged += cmbOperation_SelectedIndexChanged;
+            cmbOperation.SelectedIndexChanged += onValueChanged;
             // 
             // txtFirst
             // 
@@ -54,7 +54,7 @@
             txtFirst.Name = "txtFirst";
             txtFirst.Size = new Size(125, 27);
             txtFirst.TabIndex = 1;
-            txtFirst.TextChanged += txtFirst_TextChanged;
+            txtFirst.TextChanged += onValueChanged;
             // 
             // txtSecond
             // 
@@ -62,7 +62,7 @@
             txtSecond.Name = "txtSecond";
             txtSecond.Size = new Size(125, 27);
             txtSecond.TabIndex = 2;
-            txtSecond.TextChanged += txtSecond_TextChanged;
+            txtSecond.TextChanged += onValueChanged;
             // 
             // txtResult
             // 
@@ -78,7 +78,7 @@
             cmbFirstType.Name = "cmbFirstType";
             cmbFirstType.Size = new Size(45, 28);
             cmbFirstType.TabIndex = 4;
-            cmbFirstType.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            cmbFirstType.SelectedIndexChanged += onValueChanged;
             // 
             // cmbSecondType
             // 
@@ -87,7 +87,7 @@
             cmbSecondType.Name = "cmbSecondType";
             cmbSecondType.Size = new Size(45, 28);
             cmbSecondType.TabIndex = 5;
-            cmbSecondType.SelectedIndexChanged += cmbSecondType_SelectedIndexChanged;
+            cmbSecondType.SelectedIndexChanged += onValueChanged;
             // 
             // cmbResultType
             // 
@@ -96,7 +96,7 @@
             cmbResultType.Name = "cmbResultType";
             cmbResultType.Size = new Size(45, 28);
             cmbResultType.TabIndex = 6;
-            cmbResultType.SelectedIndexChanged += cmbResultType_SelectedIndexChanged;
+            cmbResultType.SelectedIndexChanged += onValueChanged;
             // 
             // Form1
             // 

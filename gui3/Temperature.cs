@@ -146,6 +146,24 @@ namespace gui3
             return t1 - t2.To(t1.type).value;
         }
 
+        //сравнение
+        public static bool operator ==(Temperature t1, Temperature t2)
+        {
+            return t1.To(MeasureType.K).value == t2.To(MeasureType.K).value;
+        }
 
+        public static bool operator !=(Temperature t1, Temperature t2)
+        {
+            return !(t1 == t2);
+        }
+
+        public static bool operator >(Temperature t1, Temperature t2)
+        {
+            return t1.To(MeasureType.K).value > t2.To(MeasureType.K).value;
+        }
+        public static bool operator <(Temperature t1, Temperature t2)
+        {
+            return t1.To(MeasureType.K).value < t2.To(MeasureType.K).value;
+        }
     }
 }

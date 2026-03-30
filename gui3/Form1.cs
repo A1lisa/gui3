@@ -62,16 +62,18 @@ namespace gui3
                 switch (cmbOperation.Text)
                 {
                     case "+":
-                        // если плюсик выбрали, то складываем
                         sumTemp = firstTemp + secondTemp;
                         break;
                     case "-":
-                        // если минус, то вычитаем
                         sumTemp = firstTemp - secondTemp;
                         break;
-                    default:
-                        // а если что-то другое, то просто 0 выводим,
-                        // такое маловероятно, но надо указать иначе не скомпилится
+                    case "*":
+                        sumTemp = firstTemp*secondValue;
+                        break;
+                    case "/":
+                        sumTemp = firstTemp / secondValue;
+                        break;
+                    default: 
                         sumTemp = new Temperature(0, MeasureType.K);
                         break;
                 }
@@ -82,32 +84,8 @@ namespace gui3
 
             }
         }
-        private void txtFirst_TextChanged(object sender, EventArgs e)
-        {
-            Calculate();
-        }
-
-        private void txtSecond_TextChanged(object sender, EventArgs e)
-        {
-            Calculate();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Calculate();
-        }
-
-        private void cmbOperation_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Calculate();
-        }
-
-        private void cmbSecondType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Calculate();
-        }
-
-        private void cmbResultType_SelectedIndexChanged(object sender, EventArgs e)
+      
+        private void onValueChanged(object sender, EventArgs e)
         {
             Calculate();
         }

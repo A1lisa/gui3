@@ -18,7 +18,7 @@ namespace gui3.Tests
             var temp = new Temperature(15, MeasureType.C);
             Assert.AreEqual("15 °C", temp.Verbose());
 
-            temp= new Temperature(15, MeasureType.F);
+            temp = new Temperature(15, MeasureType.F);
             Assert.AreEqual("15 °F", temp.Verbose());
 
             temp = new Temperature(15, MeasureType.Ra);
@@ -32,7 +32,7 @@ namespace gui3.Tests
         [TestMethod()]
         public void AddNumberTest()
         {
-            var temp=new Temperature(1, MeasureType.C);
+            var temp = new Temperature(1, MeasureType.C);
             temp = temp + 10.5;
             Assert.AreEqual("11,5 °C", temp.Verbose());
         }
@@ -66,7 +66,7 @@ namespace gui3.Tests
         public void KelvinToAnyTest()
         {
             Temperature temp;
-            temp=new Temperature(273.15, MeasureType.K);
+            temp = new Temperature(273.15, MeasureType.K);
             Assert.AreEqual("0 °C", temp.To(MeasureType.C).Verbose());
 
             temp = new Temperature(273.15, MeasureType.K);
@@ -98,15 +98,26 @@ namespace gui3.Tests
             var C = new Temperature(100, MeasureType.C);
             var F = new Temperature(32, MeasureType.F);
 
-            Assert.AreEqual("100 °C", (C+F).Verbose());
-            Assert.AreEqual("244 °F", (F+C).Verbose());
+            Assert.AreEqual("100 °C", (C + F).Verbose());
+            Assert.AreEqual("244 °F", (F + C).Verbose());
 
-            Assert.AreEqual("100 °C", (C-F).Verbose());
-            Assert.AreEqual("-180 °F", (F-C).Verbose());
+            Assert.AreEqual("100 °C", (C - F).Verbose());
+            Assert.AreEqual("-180 °F", (F - C).Verbose());
         }
 
+        [TestMethod()]
+        public void CompareTest()
+        {
+            var K = new Temperature(283.15, MeasureType.K);
+            var F = new Temperature(50, MeasureType.F);
+            var C = new Temperature(12, MeasureType.C);
+            var Ra = new Temperature(500, MeasureType.Ra);
 
+            Assert.IsTrue(K == F);
+            Assert.IsTrue(K != Ra);
+            Assert.IsTrue(C > Ra);
+            Assert.IsTrue(F<C);
 
-
+        }
     }
 }
